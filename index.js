@@ -2,8 +2,30 @@ import React, { Component } from 'react';
 import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
-
-class Form extends Component{
+class Blog extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      articles: [
+        'Mi primer componente de React',
+        'Introduccion a React',
+        'Que es React'
+      ]
+    }
+  }
+  render(){
+    return(
+      <div>
+      {
+        this.state.articles.map((article) => {
+          return <p>{article}</p>
+        })
+      }
+      </div>
+    );
+  }
+}
+/*class Form extends Component{
   constructor(props){
     super(props);
     this.state = {
@@ -50,6 +72,6 @@ class Form extends Component{
       </div>
     );
   }
-}
+}*/
 
-render(<Form />, document.getElementById('root'));
+render(<Blog />, document.getElementById('root'));
