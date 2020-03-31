@@ -1,24 +1,48 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import Contador from './Contador';
 import './style.css';
-class Blog extends Component{
+
+
+class App extends Component{
+  render(){
+    return(
+      <div>
+      
+      </div>
+    );
+  }
+}
+
+/*class Blog extends Component{
   constructor(props){
     super(props);
     this.state = {
-      articles: [
-        'Mi primer componente de React',
-        'Introduccion a React',
-        'Que es React'
-      ]
+      articles: []
     }
   }
+
+  componentDidMount(){
+    let promesa = fetch('https://jsonplaceholder.typicode.com/posts');
+    promesa.then(response => response.json()).then(data => {
+      this.setState({
+        articles: data
+      })
+    })
+  }
+
   render(){
     return(
       <div>
       {
         this.state.articles.map((article) => {
-          return <p>{article}</p>
+          return(
+            <div className="card">
+              <p>
+              {article.title}
+              </p>
+            </div>
+          )
         })
       }
       </div>
@@ -74,4 +98,4 @@ class Blog extends Component{
   }
 }*/
 
-render(<Blog />, document.getElementById('root'));
+render(<Contador />, document.getElementById('root'));
