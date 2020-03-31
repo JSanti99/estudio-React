@@ -3,24 +3,53 @@ import { render } from 'react-dom';
 import Hello from './Hello';
 import './style.css';
 
-class App extends Component {
-  constructor() {
-    super();
+class Form extends Component{
+  constructor(props){
+    super(props);
     this.state = {
-      name: 'React'
-    };
+      email: '',
+      password: ''
+    }
+  }
+  onEmailChanges(email){
+    this.setState({
+      email: email
+    })
+  }
+  onPasswordChanges(password){
+    this.setState({
+      password: password
+    })
   }
 
-  render() {
+  onSubmitChanges= () => {
+    console.log(this.state)
+  }
+
+  render(){
     return (
       <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+        <form>
+          <input 
+          onChange={(event)=>{ this.onEmailChanges(event.target.value)}}
+          type='email'
+          value={this.state.email}
+          placeholder='@'/>
+          <input 
+          onChange={(event)=>{ this.onPasswordChanges(event.target.value)}}
+          type='password'
+          value={this.state.password}
+          placeholder='Password'/>
+          <div>
+            <input 
+            onClick={this.onSubmitChanges}
+            type="submit"
+            value='Aceptar'/>
+          </div>
+        </form>
       </div>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<Form />, document.getElementById('root'));
